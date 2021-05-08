@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="500.0" prefWidth="569.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FilmsController">
    <children>
       <Text layoutX="255.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Films">
@@ -16,10 +15,10 @@
       </Text>
       <TableView layoutX="69.0" layoutY="71.0" prefHeight="196.0" prefWidth="453.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Nom" />
-          <TableColumn prefWidth="75.0" text="Date de sortie" />
-            <TableColumn prefWidth="75.0" text="Genre" />
-            <TableColumn prefWidth="75.0" text="Temps" />
+          <TableColumn fx:id="nomColumn" prefWidth="75.0" text="Nom" />
+          <TableColumn fx:id="directeurColumn" prefWidth="75.0" text="Directeur" />
+            <TableColumn fx:id="genreColumn" prefWidth="75.0" text="Genre" />
+            <TableColumn fx:id="tempsColumn" prefWidth="75.0" text="Temps" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -41,18 +40,18 @@
             <Label text="Date de sortie" GridPane.rowIndex="1" />
             <Label text="Genre" GridPane.rowIndex="2" />
             <Label text="Temps" GridPane.rowIndex="3" />
-            <ComboBox prefHeight="27.0" prefWidth="194.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cboGenre" prefHeight="27.0" prefWidth="194.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtNom" GridPane.columnIndex="1" />
+            <TextField fx:id="txtDate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtTemps" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
       <HBox layoutX="177.0" layoutY="432.0" prefHeight="27.0" prefWidth="330.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" text="Ajouter" />
-            <Button mnemonicParsing="false" text="Modifier" />
-            <Button mnemonicParsing="false" text="Effacer" />
-            <Button mnemonicParsing="false" text="Recommencer" />
+            <Button fx:id="btnAjouter" mnemonicParsing="false" text="Ajouter" />
+            <Button fx:id="btnModifier" mnemonicParsing="false" text="Modifier" />
+            <Button fx:id="btnEffacer" mnemonicParsing="false" text="Effacer" />
+            <Button fx:id="btnClear" mnemonicParsing="false" text="Recommencer" />
          </children>
       </HBox>
       <MenuBar>
