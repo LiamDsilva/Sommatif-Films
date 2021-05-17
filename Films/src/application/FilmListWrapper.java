@@ -14,7 +14,7 @@ public class FilmListWrapper
 		{
 			return film;
 		}
-	public void setEtudiants(List<Films> film)
+	public void setFilm(List<Films> film)
 	{
 		this.film=film;
 	}

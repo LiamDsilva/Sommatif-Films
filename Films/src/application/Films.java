@@ -23,34 +23,40 @@ public class Films
 			this.genre="";
 			this.temps=0.0;
 		}
+
+		public String getNom() {
+			return nom;
+		}
+
+		public void setNom(String nom) {
+			this.nom = nom;
+		}
+
+		public String getDirecteur() {
+			return directeur;
+		}
+
+		public void setDirecteur(String directeur) {
+			this.directeur = directeur;
+		}
+
+		public String getGenre() {
+			return genre;
+		}
+
+		public void setGenre(String genre) {
+			this.genre = genre;
+		}
+
+		public Double getTemps() {
+			return temps;
+		}
+
+		public void setTemps(Double temps) {
+			this.temps = temps;
+		}
 	
 		
-	//Getters et Setters
-	
-	public String setNom() {
-		return nom;
-	}
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	public String getDirecteur() {
-		return nom;
-	}
-	public void setDirecteur(String directeur) {
-		this.directeur = directeur;
-	}
-	public String getGenre() {
-		return genre;
-	}
-	public void setGenre(String genre) {
-		this.genre = genre;
-	}
-	public Double getTemps() {
-		return temps;
-	}
-	public void setTemps(Double temps) {
-		this.temps = temps;
-	}
 	
 
 }

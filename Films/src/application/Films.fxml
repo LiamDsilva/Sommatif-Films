@@ -13,7 +13,7 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <TableView layoutX="69.0" layoutY="71.0" prefHeight="196.0" prefWidth="453.0">
+      <TableView fx:id="filmTable" layoutX="69.0" layoutY="71.0" prefHeight="196.0" prefWidth="453.0">
         <columns>
           <TableColumn fx:id="nomColumn" prefWidth="75.0" text="Nom" />
           <TableColumn fx:id="directeurColumn" prefWidth="75.0" text="Directeur" />
@@ -36,37 +36,37 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Nom" />
-            <Label text="Date de sortie" GridPane.rowIndex="1" />
+            <Label text="Nom du film" />
+            <Label text="Directeur du film" GridPane.rowIndex="1" />
             <Label text="Genre" GridPane.rowIndex="2" />
-            <Label text="Temps" GridPane.rowIndex="3" />
-            <ComboBox fx:id="cboGenre" prefHeight="27.0" prefWidth="194.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Temps du film" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cboGenre" prefHeight="27.0" prefWidth="194.0" promptText="Choix de Genre" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="txtNom" GridPane.columnIndex="1" />
-            <TextField fx:id="txtDate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtDirecteur" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtTemps" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
       <HBox layoutX="177.0" layoutY="432.0" prefHeight="27.0" prefWidth="330.0" spacing="10.0">
          <children>
-            <Button fx:id="btnAjouter" mnemonicParsing="false" text="Ajouter" />
-            <Button fx:id="btnModifier" mnemonicParsing="false" text="Modifier" />
-            <Button fx:id="btnEffacer" mnemonicParsing="false" text="Effacer" />
-            <Button fx:id="btnClear" mnemonicParsing="false" text="Recommencer" />
+            <Button fx:id="btnAjouter" mnemonicParsing="false" onAction="#ajouter" text="Ajouter" />
+            <Button fx:id="btnModifier" mnemonicParsing="false" onAction="#updateFilm" text="Modifier" />
+            <Button fx:id="btnEffacer" mnemonicParsing="false" onAction="#deleteFilm" text="Effacer" />
+            <Button fx:id="btnClear" mnemonicParsing="false" onAction="#clearFields" text="Recommencer" />
          </children>
       </HBox>
       <MenuBar>
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Nouveau" />
-                  <MenuItem mnemonicParsing="false" text="Ouvrir" />
-                  <MenuItem mnemonicParsing="false" text="Sauvegarder" />
-                  <MenuItem mnemonicParsing="false" text="Sauvegarder sous" />
+              <MenuItem mnemonicParsing="false" onAction="#handleNew" text="Nouveau" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Ouvrir" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSave" text="Sauvegarder" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="Sauvegarder sous" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" text="Statistiques" />
+              <MenuItem mnemonicParsing="false" onAction="#handleStats" text="Statistiques" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">

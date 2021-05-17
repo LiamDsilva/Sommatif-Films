@@ -30,10 +30,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-public class FilmsController {
+public class FilmsController implements Initializable{
 
     @FXML
     private Button btnEffacer;
+    
+    @FXML
+    private TableView<Films> filmTable;
 
     @FXML
     private TableColumn<Films, String> tempsColumn;
@@ -70,13 +73,13 @@ public class FilmsController {
     
     // liste pour les genres - cette liste permettra de donner les valeurs du comboBox
 
- 	private ObservableList<String>  list=(ObservableList<String>) FXCollections.observableArrayList("Comédie","Action","Sci-fi");      
+ 	private ObservableList<String>  list=(ObservableList<String>) FXCollections.observableArrayList("Comédie","Action","Horror","Sci-fi","Amour");      
  	
  	//Placer les étudiants dans une observable list
- 		public ObservableList<Films> etudiantData=FXCollections.observableArrayList();
+ 		public ObservableList<Films> filmData=FXCollections.observableArrayList();
  
  	//Créer une méthode pour accéder à la liste des films
- 	public ObservableList<Films> getetudiantData()
+ 	public ObservableList<Films> getfilmData()
  	{
  		return filmData;
  	}
@@ -117,7 +120,7 @@ public class FilmsController {
  			Films tmp=new Films();
  			tmp=new Films();
  			tmp.setNom(txtNom.getText());
- 			tmp.setDirecteur(txtNom.getText());
+ 			tmp.setDirecteur(txtDirecteur.getText());
  			tmp.setTemps(Double.parseDouble(txtTemps.getText()));
  			tmp.setGenre(cboGenre.getValue());
  			filmData.add(tmp);
@@ -144,7 +147,7 @@ public class FilmsController {
  			{
  				cboGenre.setValue(film.getGenre());
  				txtDirecteur.setText(film.getDirecteur());
- 				txtNom.setText(film.setNom());
+ 				txtNom.setText(film.getNom());
  				txtTemps.setText(Double.toString(film.getTemps()));
  				btnModifier.setDisable(false);;
  				btnEffacer.setDisable(false);
@@ -246,7 +249,7 @@ public class FilmsController {
 	void handleStats()
 		{
 			try {
-				FXMLLoader loader=new FXMLLoader(Main.class.getResource("AgeStat.FXML"));
+				FXMLLoader loader=new FXMLLoader(Main.class.getResource("TempsStat.FXML"));
 				 AnchorPane pane=loader.load();
 				 Scene scene=new Scene(pane);
 			   	 TempsStat tempsstat=loader.getController();
@@ -327,7 +330,7 @@ public class FilmsController {
 				Marshaller m = context.createMarshaller();
 				m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 				FilmListWrapper wrapper = new FilmListWrapper();
-				wrapper.setfilm(filmData);
+				wrapper.setFilm(filmData);
 
 				m.marshal(wrapper, file);
 

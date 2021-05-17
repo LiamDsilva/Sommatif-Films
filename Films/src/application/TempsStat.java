@@ -11,7 +11,6 @@ import javafx.scene.chart.XYChart;
 
 public class TempsStat {
 
-
 	@FXML
 	private BarChart<String, Integer> barChart;
 
@@ -24,37 +23,37 @@ public class TempsStat {
 	private void initialize()
 	{
 		intervalTemps.add("0-10");
-		intervalTemps.add("10-20");
-		intervalTemps.add("20-30");
-		intervalTemps.add("30-40");
-		intervalTemps.add("50-60");
+		intervalTemps.add("100-200");
+		intervalTemps.add("200-300");
+		intervalTemps.add("300-400");
+		intervalTemps.add("500-600");
 		xAxis.setCategories(intervalTemps);
 
 	}
 
-	public void SetStats(List<Films> etudiants)
+	public void SetStats(List<Films> films)
 	{
 		// Compter les films appartenant à la même tranche de temps
 
 		int[] tempsCounter= new int[6]; // Tableau pour les nombres des tranches de temps
 
-		for(Films e:film)
+		for(Films e:films)
 		{
 			double temps= e.getTemps();
 
-			if(temps<=10)
+			if(temps<=100)
 				tempsCounter[0]++;
 			else
-				if(temps<=20)
+				if(temps<=200)
 					tempsCounter[1]++;
 				else
-					if(temps<=30)
+					if(temps<=300)
 						tempsCounter[2]++;
 					else
-						if(temps<=40)
+						if(temps<=400)
 							tempsCounter[3]++;
 						else
-							if(temps<=50)
+							if(temps<=500)
 								tempsCounter[4]++;
 							else
 									tempsCounter[5]++;
